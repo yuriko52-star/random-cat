@@ -1,5 +1,5 @@
 'use server';
-import { CAT_API_KEY } from "./env";
+import { getCatApiKey } from "./env";
 
 type Image = {
     url: string;
@@ -7,10 +7,13 @@ type Image = {
 
 
 export async function fetchImage(): Promise<Image> {
+    const apiKey = getCatApiKey();
     const res = await fetch("https://api.thecatapi.com/v1/images/search", {
-        headers: {"x-api-key": CAT_API_KEY },
-    });
+        headers: { "x-api-key": apiKey },
+        cache: 'no-store',
+    }
+    );
     const images = await res.json();
-    console.log('fetchImage:画像情報を取得しました', images);
+    // console.log('fetchImage:画像情報を取得しました', images);
     return images[0];
 }
