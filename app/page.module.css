@@ -2,11 +2,12 @@
 
 .page {
   display: flex;
-  justify-content: center;
+   justify-content: flex-start; 
   align-items: center;
   min-height: 100vh;
   flex-direction: column;
   gap: 20px;
+  padding: 16px;
   background: #fff;
 }
 
@@ -45,7 +46,9 @@
 }
 
 .frame {
-  width: 400px;
+   position: relative; /* ← fill の必須条件 */
+  max-width: 400px;
+  width: 100%;
   aspect-ratio: 1 / 1;
   box-sizing: border-box;
   border-radius: 8px;
