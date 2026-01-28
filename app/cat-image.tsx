@@ -24,7 +24,9 @@ export function CatImage({ url }: CatImageProps) {
         </button>
         <div className={styles.frame}>
           {imageUrl && (
-            <Image src={imageUrl} className={styles.img} alt="猫の画像" />
+                    <Image src={imageUrl} className={styles.img} alt="猫の画像"
+                    fill
+                    sizes="(max-width:768px) 100vw, 400px"/>
           )}
         </div>
       </div>
