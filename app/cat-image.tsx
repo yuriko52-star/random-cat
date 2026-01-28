@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { fetchImage } from './fetch-image';
 import styles from "./page.module.css";
+import Image from "next/image";
 
 type CatImageProps = {
     url: string;
@@ -17,11 +18,15 @@ export function CatImage({ url }: CatImageProps) {
     };
 
     return (
-        <div className={styles.page}>
-            <button onClick={refreshImage} className={styles.button}>他のにゃんこも見る</button>
-            <div className={styles.frame}>
-                {imageUrl && <img src={imageUrl} className={styles.img} />}
-            </div>
+      <div className={styles.page}>
+        <button onClick={refreshImage} className={styles.button}>
+          他のにゃんこも見る
+        </button>
+        <div className={styles.frame}>
+          {imageUrl && (
+            <Image src={imageUrl} className={styles.img} alt="猫の画像" />
+          )}
         </div>
+      </div>
     );
 }
